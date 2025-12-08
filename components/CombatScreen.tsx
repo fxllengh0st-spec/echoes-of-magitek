@@ -29,7 +29,7 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
   const [enemyAnim, setEnemyAnim] = useState('');
   const [damageNumber, setDamageNumber] = useState<{ val: string, x: number, y: number, color: string } | null>(null);
 
-  // Load Images via MoogleAPI on Mount
+  // Load Images via Service on Mount
   useEffect(() => {
     const loadImages = async () => {
       // Load Enemy
@@ -212,9 +212,16 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
     }
   }, [turn, enemy.hp]);
 
-  // Fallback if image fails to load
+  // Fallback if image fails to load (likely due to 403 Forbidden on hotlink)
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, name: string) => {
-    e.currentTarget.src = `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(name)}`;
+    const target = e.currentTarget;
+    const fallbackUrl = `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(name)}`;
+    
+    // Prevent infinite loop if fallback also fails
+    if (target.src !== fallbackUrl) {
+      console.warn(`Failed to load image for ${name}, switching to fallback.`);
+      target.src = fallbackUrl;
+    }
   };
 
   return (
@@ -241,16 +248,16 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
 
         {/* --- ENEMY (Left) --- */}
         <div className={`absolute top-1/3 left-[5%] md:left-[15%] z-10 transition-all duration-500 ${enemy.hp <= 0 ? 'opacity-0 scale-50 blur-sm' : 'opacity-100'}`}>
-          <div className={`w-32 h-32 md:w-56 md:h-56 transition-transform duration-100 ${enemyAnim}`}>
+          <div className={`w-32 h-32 md:w-56 md:h-56 transition-transform duration-100 ${enemyAnim} flex items-center justify-center`}>
              {enemyImage ? (
                <img 
                  src={enemyImage} 
                  alt={enemy.name}
                  onError={(e) => handleImageError(e, enemy.name)}
-                 className="w-full h-full object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] filter contrast-110"
+                 className="max-w-full max-h-full object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] filter contrast-110 image-pixelated"
                />
              ) : (
-               <div className="w-full h-full animate-pulse bg-white/10 rounded-full flex items-center justify-center text-xs">Loading...</div>
+               <div className="w-16 h-16 animate-spin rounded-full border-4 border-red-500 border-t-transparent"></div>
              )}
           </div>
         </div>
@@ -264,6 +271,12 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
             const isActive = turn === 'PLAYER' && activeCharIndex === index;
             const animClass = activeAnimId === char.id ? activeAnimClass : '';
             const imgUrl = heroImages[char.id];
+            
+            // Logic to determine if we flip the sprite.
+            // 1. Hero Sprites (e.g., Terra Battle) usually face LEFT (Correct for right-side placement).
+            // 2. Enemy Sprites (e.g., Magitek Armor) usually face RIGHT. If used by Heroes, they must be flipped.
+            const isEnemySprite = imgUrl && imgUrl.includes('Enemies');
+            const flipClass = isEnemySprite ? 'transform scale-x-[-1]' : '';
 
             return (
                 <div 
@@ -271,7 +284,7 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
                     className={`absolute z-10 transition-all duration-300 ${animClass}`}
                     style={{ right: `${rightPos}%`, top: `${topPos}%` }}
                 >
-                    <div className="w-24 h-24 md:w-32 md:h-32 drop-shadow-[0_10px_5px_rgba(0,0,0,0.8)] relative">
+                    <div className="w-24 h-24 md:w-32 md:h-32 drop-shadow-[0_10px_5px_rgba(0,0,0,0.8)] relative flex items-center justify-center">
                         {isActive && actionMenu === 'MAIN' && (
                              <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-yellow-300 animate-bounce text-2xl">▼</div>
                         )}
@@ -280,10 +293,10 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
                               src={imgUrl}
                               alt={char.name}
                               onError={(e) => handleImageError(e, char.name)}
-                              className="w-full h-full object-contain transform scale-x-[-1]"
+                              className={`max-w-full max-h-full object-contain image-pixelated ${flipClass}`}
                           />
                         ) : (
-                          <div className="w-full h-full animate-pulse bg-white/10"></div>
+                          <div className="w-full h-full animate-pulse bg-white/10 rounded-lg"></div>
                         )}
                     </div>
                 </div>
