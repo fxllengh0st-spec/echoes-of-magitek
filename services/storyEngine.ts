@@ -2,10 +2,10 @@ import { StoryNode, Enemy } from "../types";
 
 // --- ENEMIES ---
 
-const NARSHE_GUARD: Enemy = {
-  id: 'narshe_guard',
-  name: 'Narshe Guard',
-  description: 'Um guarda local protegendo as minas.',
+const COMMANDO: Enemy = {
+  id: 'narshe_guard', // Keeping ID for compatibility
+  name: 'Command', // Updated to Command
+  description: 'Um soldado de elite do Império.',
   hp: 120,
   maxHp: 120,
   attack: 25,
@@ -24,7 +24,7 @@ const SILVER_LOBO: Enemy = {
 
 const BOSS_WHELK: Enemy = {
   id: 'whelk_boss', 
-  name: 'Whelk', // Changed to Whelk to match API/Overrides
+  name: 'Whelk',
   description: 'Um molusco gigante guardando a entrada das minas.',
   hp: 800,
   maxHp: 800,
@@ -56,7 +56,7 @@ const STORY_NODES: Record<string, StoryNode> = {
   'city_entrance': {
     id: 'city_entrance',
     type: 'NARRATIVE',
-    text: "Vocês invadem as ruas da cidade. Os cães latem. Luzes se acendem.\n\nGuarda de Narshe: \"O Império?! Armaduras Magitek?! Parem imediatamente!\"\n\nVicks: \"Não temos tempo para isso. Abram caminho!\"",
+    text: "Vocês invadem as ruas da cidade. Os cães latem. Luzes se acendem.\n\nCommand: \"O Império?! Armaduras Magitek?! Parem imediatamente!\"\n\nVicks: \"Não temos tempo para isso. Abram caminho!\"",
     background: 'https://picsum.photos/seed/narshegate/1024/768',
     choices: [
       { text: "Atacar Guarda", nextNodeId: 'combat_guard_1' }
@@ -65,15 +65,15 @@ const STORY_NODES: Record<string, StoryNode> = {
   'combat_guard_1': {
     id: 'combat_guard_1',
     type: 'COMBAT_ENCOUNTER',
-    text: "Os guardas bloqueiam o caminho!",
-    enemyData: NARSHE_GUARD,
+    text: "Um esquadrão de Commands bloqueia o caminho!",
+    enemyData: COMMANDO,
     winNodeId: 'mines_approach',
     choices: []
   },
   'mines_approach': {
     id: 'mines_approach',
     type: 'NARRATIVE',
-    text: "Com os guardas derrotados, o caminho para as montanhas ao norte está livre.\n\nWedge: \"Essa armadura é incrível... eles não tiveram chance.\"\n\nVocês se aproximam da entrada da mina. O ar fica mais denso.",
+    text: "Com os soldados derrotados, o caminho para as montanhas ao norte está livre.\n\nWedge: \"Essa armadura é incrível... eles não tiveram chance.\"\n\nVocês se aproximam da entrada da mina. O ar fica mais denso.",
     background: 'https://picsum.photos/seed/narshemines_ext/1024/768',
     choices: [
       { text: "Entrar nas Minas", nextNodeId: 'mines_interior_1' },
