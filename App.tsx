@@ -210,7 +210,7 @@ const App: React.FC = () => {
           /* EXPLORATION MODE */
           <>
             {/* Visual Scene */}
-            <div className="relative h-[65%] w-full bg-gray-900 overflow-hidden">
+            <div className="relative h-[65%] md:h-[60%] w-full bg-gray-900 overflow-hidden">
                  <div className="absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out"
                       style={{ 
                           backgroundImage: `url('${currentBackground}')`, 
@@ -221,17 +221,19 @@ const App: React.FC = () => {
                  {/* Snow Effect Overlay */}
                  <div className="absolute inset-0 bg-[url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css')] opacity-10 pointer-events-none"></div>
 
-                 {/* Narrative Text Overlay */}
-                 <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#000044] via-[#000044]/90 to-transparent p-4 md:p-8 min-h-[40%] flex flex-col justify-end border-t-2 border-blue-400/30">
-                    <p className="text-xl md:text-3xl leading-relaxed text-white drop-shadow-[2px_2px_0_rgba(0,0,0,1)] font-vt323 animate-in fade-in slide-in-from-bottom-2 duration-500 whitespace-pre-line">
-                       {currentNode?.text}
-                    </p>
+                 {/* Text Window (Moved from absolute overlay to flex child to allow better sizing/scroll) */}
+                 <div className="absolute bottom-0 w-full bg-[#000044] bg-opacity-95 p-4 md:p-8 h-[40%] flex flex-col border-t-4 border-gray-600 shadow-xl">
+                    <div className="overflow-y-auto h-full pr-2 custom-scrollbar">
+                        <p className="text-3xl md:text-5xl leading-tight text-gray-100 font-vt323 whitespace-pre-line drop-shadow-md">
+                           {currentNode?.text}
+                        </p>
+                    </div>
                  </div>
             </div>
 
-            {/* Interaction / Menu Area */}
-            <div className="h-[35%] bg-[#000022] p-2 md:p-4 flex items-center justify-center border-t-4 border-gray-500">
-               <FFWindow className="w-full h-full max-w-4xl flex flex-col justify-center relative">
+            {/* Interaction / Menu Area (Adjusted height) */}
+            <div className="h-[35%] md:h-[40%] bg-[#000022] p-2 md:p-4 flex items-center justify-center border-t-4 border-gray-500">
+               <FFWindow className="w-full h-full max-w-4xl flex flex-col justify-center relative bg-gradient-to-br from-blue-900/50 to-transparent">
                   {isLoading ? (
                       <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-10 backdrop-blur-sm rounded">
                          <RetroLoading />

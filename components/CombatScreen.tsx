@@ -212,6 +212,11 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
     }
   }, [turn, enemy.hp]);
 
+  // Fallback if image fails to load
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, name: string) => {
+    e.currentTarget.src = `https://api.dicebear.com/9.x/pixel-art/svg?seed=${encodeURIComponent(name)}`;
+  };
+
   return (
     <div className="flex flex-col h-full w-full">
       
@@ -241,10 +246,11 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
                <img 
                  src={enemyImage} 
                  alt={enemy.name}
+                 onError={(e) => handleImageError(e, enemy.name)}
                  className="w-full h-full object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)] filter contrast-110"
                />
              ) : (
-               <div className="w-full h-full animate-pulse bg-white/10 rounded-full"></div>
+               <div className="w-full h-full animate-pulse bg-white/10 rounded-full flex items-center justify-center text-xs">Loading...</div>
              )}
           </div>
         </div>
@@ -273,6 +279,7 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
                           <img 
                               src={imgUrl}
                               alt={char.name}
+                              onError={(e) => handleImageError(e, char.name)}
                               className="w-full h-full object-contain transform scale-x-[-1]"
                           />
                         ) : (
