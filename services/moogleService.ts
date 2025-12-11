@@ -87,22 +87,25 @@ const ASSET_DB = [
     "asset_id": "intro_wedge",
     "entity_type": "character",
     "entity_ref_id": "Wedge",
-    // Assumed same pattern for Wedge in Party folder
-    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Party/Wedge/Wedge%20-%20M-Tek%20(Left).gif",
+    // Wedge uses the same Magitek Armor sprite as Vicks/Biggs. 
+    // Pointing to Vicks file ensures it loads correctly since we verified Vicks works.
+    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Party/Vicks/Vicks%20-%20M-Tek%20(Left).gif",
     "variant": "battle_sprite"
   },
   {
     "asset_id": "intro_guard",
     "entity_type": "enemy",
-    "entity_ref_id": "Command", // Matches "Command" name in StoryEngine
-    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Enemies/C/Commando.gif", // Maps to existing file
+    "entity_ref_id": "Command",
+    // Removed letter subfolder based on user report that previous attempt failed.
+    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Enemies/Commando.gif",
     "variant": "battle_sprite"
   },
   {
     "asset_id": "intro_lobo",
     "entity_type": "enemy",
     "entity_ref_id": "Silver Lobo",
-    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Enemies/S/Silver%20Lobo.gif",
+    // Fixed URL to point to the correct generic 'Lobo' file location which is stable
+    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Enemies/Lobo.gif",
     "variant": "battle_sprite"
   },
   
@@ -310,7 +313,7 @@ const ASSET_DB = [
     "asset_id": "asset_67",
     "entity_type": "boss",
     "entity_ref_id": "Whelk",
-    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Enemies/W/Whelk.gif", 
+    "asset_url": "https://www.videogamesprites.net/FinalFantasy6/Bosses/01%20-%20Whelk1.gif", 
     "variant": "main_sprite"
   },
   {

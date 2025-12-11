@@ -39,7 +39,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'start',
     type: 'NARRATIVE',
     text: "O vento uiva através dos picos congelados...\n\nTrês figuras em Armaduras Magitek marcham em direção à cidade mineira de Narshe sob a proteção da escuridão.\n\nVicks (Biggs): \"Então essa é Narshe...\"",
-    background: 'https://picsum.photos/seed/narshesnow/1024/768',
+    // Classic Intro Shot (Cliff)
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/5-FF6_00005.png',
     choices: [
       { text: "Continuar marcha", nextNodeId: 'dialogue_wedge' }
     ]
@@ -57,7 +58,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'city_entrance',
     type: 'NARRATIVE',
     text: "Vocês invadem as ruas da cidade. Os cães latem. Luzes se acendem.\n\nCommand: \"O Império?! Armaduras Magitek?! Parem imediatamente!\"\n\nVicks: \"Não temos tempo para isso. Abram caminho!\"",
-    background: 'https://picsum.photos/seed/narshegate/1024/768',
+    // Narshe City Gates
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/44-FF6_00044.png',
     choices: [
       { text: "Atacar Guarda", nextNodeId: 'combat_guard_1' }
     ]
@@ -74,7 +76,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'mines_approach',
     type: 'NARRATIVE',
     text: "Com os soldados derrotados, o caminho para as montanhas ao norte está livre.\n\nWedge: \"Essa armadura é incrível... eles não tiveram chance.\"\n\nVocês se aproximam da entrada da mina. O ar fica mais denso.",
-    background: 'https://picsum.photos/seed/narshemines_ext/1024/768',
+    // Mines Entrance (Snowy Path)
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/60-FF6_00060.png',
     choices: [
       { text: "Entrar nas Minas", nextNodeId: 'mines_interior_1' },
       { text: "Verificar Radar", nextNodeId: 'mines_radar' }
@@ -84,7 +87,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'mines_radar',
     type: 'NARRATIVE',
     text: "O radar da Magitek Armor aponta uma forte assinatura de energia mágica vindo das profundezas.\n\nVicks: \"O sinal é forte. Definitivamente é o Esper.\"",
-    background: 'https://picsum.photos/seed/magitek_hud/1024/768',
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/60-FF6_00060.png',
     choices: [
       { text: "Entrar nas Minas", nextNodeId: 'mines_interior_1' }
     ]
@@ -93,7 +96,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'mines_interior_1',
     type: 'NARRATIVE',
     text: "Dentro das minas, trilhos de vagonetas cruzam o abismo. O cheiro de enxofre e gelo antigo permeia o ar.\n\nDe repente, sombras se movem nas vigas acima.",
-    background: 'https://picsum.photos/seed/narshemines_int/1024/768',
+    // Inside Mines
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/10-FF6_00115.png',
     choices: [
       { text: "Preparar armas", nextNodeId: 'combat_lobo' }
     ]
@@ -110,7 +114,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'mines_deep',
     type: 'NARRATIVE',
     text: "Vocês chegam a uma grande câmara circular. No centro, uma passarela estreita leva à escuridão.\n\nWedge: \"Estou sentindo algo... um arrepio na espinha.\"\n\nO chão treme. Algo gigantesco emerge do abismo.",
-    background: 'https://picsum.photos/seed/whelk_cave/1024/768',
+    // Whelk Area / Deep Cave
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/33-FF6_00138.png',
     choices: [
       { text: "Olhar para cima", nextNodeId: 'boss_intro' }
     ]
@@ -119,7 +124,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'boss_intro',
     type: 'NARRATIVE',
     text: "Um caracol gigante com uma concha brilhante bloqueia o caminho!\n\nVicks: \"É o Whelk! Cuidado, quando ele se esconder na concha, não ataquem ou ele vai contra-atacar com Mega Volt!\"",
-    background: 'https://picsum.photos/seed/whelk_boss/1024/768',
+    // Close up context or keep cave bg
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/33-FF6_00138.png', 
     choices: [
       { text: "Iniciar Combate", nextNodeId: 'combat_boss' }
     ]
@@ -136,7 +142,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'esper_chamber',
     type: 'NARRATIVE',
     text: "O monstro cai, desaparecendo na névoa abaixo.\n\nVocês avançam para a câmara final. Lá está ele. Um bloco de gelo emitindo uma luz etérea.\n\nO ESPER CONGELADO.",
-    background: 'https://picsum.photos/seed/frozen_esper/1024/768',
+    // Frozen Esper (Valigarmanda)
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/47-FF6_00152.png',
     choices: [
       { text: "Aproximar-se", nextNodeId: 'esper_reaction' }
     ]
@@ -145,7 +152,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'esper_reaction',
     type: 'NARRATIVE',
     text: "Wedge: \"Olhem! Está reagindo à Terra!\"\n\nA Armadura Magitek de Terra começa a brilhar em ressonância com o Esper. Um som agudo perfura suas mentes.\n\nVicks e Wedge são jogados para longe, desaparecendo num flash de luz.",
-    background: 'https://picsum.photos/seed/valigarmanda/1024/768',
+    // Glowing Esper
+    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/49-FF6_00154.png',
     choices: [
       { text: "Gritar", nextNodeId: 'cliff_fall' }
     ]

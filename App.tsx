@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { getStartNode, getStoryNode } from './services/storyEngine';
 import { GamePhase, Character, CharacterClass, Enemy, StoryNode } from './types';
 import { FFWindow, RetroButton, RetroLoading } from './components/RetroUI';
@@ -48,7 +48,17 @@ const App: React.FC = () => {
   const [currentNode, setCurrentNode] = useState<StoryNode | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [currentEnemy, setCurrentEnemy] = useState<Enemy | null>(null);
-  const [currentBackground, setCurrentBackground] = useState<string>('https://picsum.photos/seed/magitekarmor/1920/1080');
+  // Default to the snowy intro shot
+  const [currentBackground, setCurrentBackground] = useState<string>('https://lparchive.org/Final-Fantasy-VI/Update%2001/5-FF6_00005.png');
+  
+  const textScrollRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top whenever text changes or phase switches (e.g. back from combat)
+  useEffect(() => {
+    if (textScrollRef.current) {
+      textScrollRef.current.scrollTop = 0;
+    }
+  }, [currentNode?.id, currentNode?.text, phase]);
 
   const handleStartGame = () => {
     setPhase(GamePhase.LOADING);
@@ -133,7 +143,7 @@ const App: React.FC = () => {
   if (phase === GamePhase.START_SCREEN) {
     return (
       <div className="h-dvh w-full flex flex-col items-center justify-center bg-black relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-50 bg-[url('https://picsum.photos/seed/magitekarmor/1920/1080')] bg-cover bg-center filter grayscale contrast-125" />
+        <div className="absolute inset-0 z-0 opacity-50 bg-[url('https://lparchive.org/Final-Fantasy-VI/Update%2001/5-FF6_00005.png')] bg-cover bg-center filter grayscale contrast-125" />
         <div className="z-10 text-center max-w-2xl px-4 flex flex-col items-center">
           <h1 className="text-6xl md:text-9xl mb-4 text-transparent bg-clip-text bg-gradient-to-t from-red-700 via-red-500 to-white font-bold tracking-tighter drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" style={{ fontFamily: 'VT323' }}>
             FINAL FANTASY VI
@@ -223,7 +233,10 @@ const App: React.FC = () => {
 
                  {/* Text Window (Moved from absolute overlay to flex child to allow better sizing/scroll) */}
                  <div className="absolute bottom-0 w-full bg-[#000044] bg-opacity-95 p-4 md:p-8 h-[40%] flex flex-col border-t-4 border-gray-600 shadow-xl">
-                    <div className="overflow-y-auto h-full pr-2 custom-scrollbar">
+                    <div 
+                      ref={textScrollRef}
+                      className="overflow-y-auto h-full pr-2 custom-scrollbar"
+                    >
                         <p className="text-3xl md:text-5xl leading-tight text-gray-100 font-vt323 whitespace-pre-line drop-shadow-md">
                            {currentNode?.text}
                         </p>
