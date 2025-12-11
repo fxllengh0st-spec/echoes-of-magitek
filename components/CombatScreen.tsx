@@ -232,7 +232,7 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
         
         <div className="absolute inset-0 z-0 bg-cover bg-bottom opacity-50"
              style={{ 
-               backgroundImage: `url('https://picsum.photos/seed/${enemy.name}bg/800/600')`,
+               backgroundImage: `url('https://drive.google.com/uc?export=view&id=1rsZuiTZZRI37DeJS_weJvjxgn9Qih6wn')`,
                filter: 'blur(1px) contrast(1.2) brightness(0.7)'
              }} 
         />
