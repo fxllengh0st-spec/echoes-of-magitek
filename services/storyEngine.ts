@@ -40,7 +40,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "O vento uiva através dos picos congelados...\n\nTrês figuras em Armaduras Magitek marcham em direção à cidade mineira de Narshe sob a proteção da escuridão.\n\nVicks (Biggs): \"Então essa é Narshe...\"",
     // Classic Intro Shot (Cliff)
-    background: 'https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F0ef76cdu8y581.jpg%3Fwidth%3D640%26crop%3Dsmart%26auto%3Dwebp%26s%3D4ce9571ecf4fc57c4dce39961b76e826f5459238',
+    background: 'https://static.wikia.nocookie.net/finalfantasy/images/e/e9/FFVI_Pixel_Remaster_Raid_on_Narshe_1.png/revision/latest/thumbnail/width/360/height/450?cb=20221226140444',
     choices: [
       { text: "Continuar marcha", nextNodeId: 'dialogue_wedge' }
     ]
