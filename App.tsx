@@ -49,7 +49,7 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentEnemy, setCurrentEnemy] = useState<Enemy | null>(null);
   // Default to the snowy intro shot
-  const [currentBackground, setCurrentBackground] = useState<string>('https://lparchive.org/Final-Fantasy-VI/Update%2001/5-FF6_00005.png');
+  const [currentBackground, setCurrentBackground] = useState<string>('https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F0ef76cdu8y581.jpg%3Fwidth%3D640%26crop%3Dsmart%26auto%3Dwebp%26s%3D4ce9571ecf4fc57c4dce39961b76e826f5459238');
   
   const textScrollRef = useRef<HTMLDivElement>(null);
 
@@ -143,7 +143,7 @@ const App: React.FC = () => {
   if (phase === GamePhase.START_SCREEN) {
     return (
       <div className="h-dvh w-full flex flex-col items-center justify-center bg-black relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-50 bg-[url('https://lparchive.org/Final-Fantasy-VI/Update%2001/5-FF6_00005.png')] bg-cover bg-center filter grayscale contrast-125" />
+        <div className="absolute inset-0 z-0 opacity-50 bg-[url('https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F0ef76cdu8y581.jpg%3Fwidth%3D640%26crop%3Dsmart%26auto%3Dwebp%26s%3D4ce9571ecf4fc57c4dce39961b76e826f5459238')] bg-cover bg-center filter grayscale contrast-125" />
         <div className="z-10 text-center max-w-2xl px-4 flex flex-col items-center">
           <h1 className="text-6xl md:text-9xl mb-4 text-transparent bg-clip-text bg-gradient-to-t from-red-700 via-red-500 to-white font-bold tracking-tighter drop-shadow-[4px_4px_0_rgba(0,0,0,1)]" style={{ fontFamily: 'VT323' }}>
             FINAL FANTASY VI

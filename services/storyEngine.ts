@@ -40,7 +40,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "O vento uiva através dos picos congelados...\n\nTrês figuras em Armaduras Magitek marcham em direção à cidade mineira de Narshe sob a proteção da escuridão.\n\nVicks (Biggs): \"Então essa é Narshe...\"",
     // Classic Intro Shot (Cliff)
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/5-FF6_00005.png',
+    background: 'https://www.reddit.com/media?url=https%3A%2F%2Fpreview.redd.it%2F0ef76cdu8y581.jpg%3Fwidth%3D640%26crop%3Dsmart%26auto%3Dwebp%26s%3D4ce9571ecf4fc57c4dce39961b76e826f5459238',
     choices: [
       { text: "Continuar marcha", nextNodeId: 'dialogue_wedge' }
     ]
@@ -59,7 +59,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "Vocês invadem as ruas da cidade. Os cães latem. Luzes se acendem.\n\nCommand: \"O Império?! Armaduras Magitek?! Parem imediatamente!\"\n\nVicks: \"Não temos tempo para isso. Abram caminho!\"",
     // Narshe City Gates
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/44-FF6_00044.png',
+    background: 'https://pa1.aminoapps.com/7846/9c867044036f7a022cc8ec9d8c74c8b68538d7a2r1-500-700_hq.gif',
     choices: [
       { text: "Atacar Guarda", nextNodeId: 'combat_guard_1' }
     ]
@@ -77,7 +77,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "Com os soldados derrotados, o caminho para as montanhas ao norte está livre.\n\nWedge: \"Essa armadura é incrível... eles não tiveram chance.\"\n\nVocês se aproximam da entrada da mina. O ar fica mais denso.",
     // Mines Entrance (Snowy Path)
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/60-FF6_00060.png',
+    background: 'https://pa1.aminoapps.com/7846/9c867044036f7a022cc8ec9d8c74c8b68538d7a2r1-500-700_hq.gif',
     choices: [
       { text: "Entrar nas Minas", nextNodeId: 'mines_interior_1' },
       { text: "Verificar Radar", nextNodeId: 'mines_radar' }
@@ -87,7 +87,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'mines_radar',
     type: 'NARRATIVE',
     text: "O radar da Magitek Armor aponta uma forte assinatura de energia mágica vindo das profundezas.\n\nVicks: \"O sinal é forte. Definitivamente é o Esper.\"",
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2001/60-FF6_00060.png',
+    background: 'https://pa1.aminoapps.com/7846/9c867044036f7a022cc8ec9d8c74c8b68538d7a2r1-500-700_hq.gif',
     choices: [
       { text: "Entrar nas Minas", nextNodeId: 'mines_interior_1' }
     ]
@@ -97,7 +97,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "Dentro das minas, trilhos de vagonetas cruzam o abismo. O cheiro de enxofre e gelo antigo permeia o ar.\n\nDe repente, sombras se movem nas vigas acima.",
     // Inside Mines
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/10-FF6_00115.png',
+    background: 'https://assets.gamercorner.net/images/ffvi/set-encounters/whelk.jpg',
     choices: [
       { text: "Preparar armas", nextNodeId: 'combat_lobo' }
     ]
@@ -115,7 +115,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "Vocês chegam a uma grande câmara circular. No centro, uma passarela estreita leva à escuridão.\n\nWedge: \"Estou sentindo algo... um arrepio na espinha.\"\n\nO chão treme. Algo gigantesco emerge do abismo.",
     // Whelk Area / Deep Cave
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/33-FF6_00138.png',
+    background: 'https://assets.gamercorner.net/images/ffvi/set-encounters/whelk.jpg',
     choices: [
       { text: "Olhar para cima", nextNodeId: 'boss_intro' }
     ]
@@ -125,7 +125,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "Um caracol gigante com uma concha brilhante bloqueia o caminho!\n\nVicks: \"É o Whelk! Cuidado, quando ele se esconder na concha, não ataquem ou ele vai contra-atacar com Mega Volt!\"",
     // Close up context or keep cave bg
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/33-FF6_00138.png', 
+    background: 'https://assets.gamercorner.net/images/ffvi/set-encounters/whelk.jpg', 
     choices: [
       { text: "Iniciar Combate", nextNodeId: 'combat_boss' }
     ]

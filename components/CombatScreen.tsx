@@ -230,9 +230,9 @@ export const CombatScreen: React.FC<CombatScreenProps> = ({
       {/* --- BATTLEFIELD (Top 65%) --- */}
       <div className="relative flex-grow bg-gray-900 overflow-hidden perspective-1000">
         
-        {/* Background Image Layer - Using IMG tag for better Drive support */}
+        {/* Background Image Layer */}
         <img 
-            src="https://drive.google.com/uc?export=view&id=1rsZuiTZZRI37DeJS_weJvjxgn9Qih6wn"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyOO3l4DFC8jx0StHnDsb0p7ohNI8nGwEIvPRqpBNlzrssUM0Qdf3mFphd&s=10"
             alt="Battle Scene"
             className="absolute inset-0 w-full h-full object-cover object-bottom z-0 opacity-50"
             style={{ 
