@@ -40,7 +40,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "O vento uiva através dos picos congelados...\n\nTrês figuras em Armaduras Magitek marcham em direção à cidade mineira de Narshe sob a proteção da escuridão.\n\nVicks (Biggs): \"Então essa é Narshe...\"",
     // Classic Intro Shot (Cliff)
-    background: 'https://static.wikia.nocookie.net/finalfantasy/images/e/e9/FFVI_Pixel_Remaster_Raid_on_Narshe_1.png/revision/latest/thumbnail/width/360/height/450?cb=20221226140444',
+    background: 'https://wsrv.nl/?url=https://static.wikia.nocookie.net/finalfantasy/images/e/e9/FFVI_Pixel_Remaster_Raid_on_Narshe_1.png/revision/latest/thumbnail/width/360/height/450?cb=20221226140444',
     choices: [
       { text: "Continuar marcha", nextNodeId: 'dialogue_wedge' }
     ]
@@ -143,7 +143,7 @@ const STORY_NODES: Record<string, StoryNode> = {
     type: 'NARRATIVE',
     text: "O monstro cai, desaparecendo na névoa abaixo.\n\nVocês avançam para a câmara final. Lá está ele. Um bloco de gelo emitindo uma luz etérea.\n\nO ESPER CONGELADO.",
     // Frozen Esper (Valigarmanda)
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/47-FF6_00152.png',
+    background: 'https://wsrv.nl/?url=https://static.wikia.nocookie.net/finalfantasy/images/5/5d/Narshe_Cliffs_from_FFVI_Pixel_Remaster.jpg/revision/latest?cb=20220307073120',
     choices: [
       { text: "Aproximar-se", nextNodeId: 'esper_reaction' }
     ]
@@ -152,8 +152,8 @@ const STORY_NODES: Record<string, StoryNode> = {
     id: 'esper_reaction',
     type: 'NARRATIVE',
     text: "Wedge: \"Olhem! Está reagindo à Terra!\"\n\nA Armadura Magitek de Terra começa a brilhar em ressonância com o Esper. Um som agudo perfura suas mentes.\n\nVicks e Wedge são jogados para longe, desaparecendo num flash de luz.",
-    // Glowing Esper
-    background: 'https://lparchive.org/Final-Fantasy-VI/Update%2002/49-FF6_00154.png',
+    // Glowing Esper - Using same bg to keep consistency or could use a white fade effect eventually
+    background: 'https://wsrv.nl/?url=https://static.wikia.nocookie.net/finalfantasy/images/5/5d/Narshe_Cliffs_from_FFVI_Pixel_Remaster.jpg/revision/latest?cb=20220307073120',
     choices: [
       { text: "Gritar", nextNodeId: 'cliff_fall' }
     ]
